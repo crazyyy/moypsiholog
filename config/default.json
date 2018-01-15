@@ -1,6 +1,6 @@
 {
-  "domain": "wp-framework.dev",
-  "theme": "wp-framework",
+  "domain": "moypsiholog.dev",
+  "theme": "wp-moypsiholog",
   "path": {
     "base": {
       "src":"assets/",
