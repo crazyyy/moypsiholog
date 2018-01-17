@@ -6,5 +6,49 @@
   list-style-type: none;
   li {
     display: inline-block;
+    a {
+      font-size: 16px;
+    }
+  }
+  .separator {
+    font-size: 11px;
+    font-weight: 300;
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 16px;
+    margin-left: 5px;
+  }
+}
+
+.pagination {
+  text-align: center;
+  span,
+  a {
+    font-size: 16px;
+
+    display: inline-block;
+
+    padding: 15px;
+
+    border-radius: 3px;
+    &:hover {
+      text-decoration: none;
+
+      background: hsla(0,0%,60%,.2);
+    }
+    &.next,
+    &.prev {
+      background-color: transparent;
+    }
+  }
+}
+#gmap-front {
+  width: 100%;
+
+  img {
+    max-width: inherit !important;
   }
 }

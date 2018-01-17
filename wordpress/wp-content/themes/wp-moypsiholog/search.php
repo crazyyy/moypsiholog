@@ -1,10 +1,32 @@
 <?php get_header(); ?>
-  <article>
+  <div id="main" class="container">
+    <div id="main-content">
 
-    <h1 class="search-title inner-title"><?php echo sprintf( __( '%s Search Results for ', 'wpeasy' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
-    <?php get_template_part('loop'); ?>
-    <?php get_template_part('pagination'); ?>
+      <div class="card-holder">
+        <h2 class="element-invisible">Вы здесь</h2>
+        <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
+        <h1 class="title" id="page-title"><?php echo sprintf( __( '%s Search Results for ', 'wpeasy' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
+        <div class="tabs"></div>
+        <div class="region region-content">
+          <div id="block-system-main" class="block block-system">
+            <div class="content">
+              <div class="view view-articles view-id-articles view-display-id-page articles">
+                <div class="view-content">
+                  <?php get_template_part('loop'); ?>
+                </div>
+                <nav class="pager">
+                  <h2 class="element-invisible">Страницы</h2>
+                  <div class="item-list">
+                    <?php get_template_part('pagination'); ?>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  </article>
-<?php get_sidebar(); ?>
+    </div>
+    <?php get_sidebar(); ?>
+  </div>
 <?php get_footer(); ?>

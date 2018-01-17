@@ -32,12 +32,11 @@
     </footer>
   </div>
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZF31krTQH_5QnEpdIsEgmsBV-Iy884rE"></script>
   <?php wp_footer(); ?>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jq-debug.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/unknown.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/gmaps-config.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
 
 </body>
 </html>

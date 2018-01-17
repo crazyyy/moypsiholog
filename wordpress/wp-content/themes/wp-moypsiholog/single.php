@@ -5,7 +5,6 @@
       <div class="card-holder">
         <h2 class="element-invisible">Вы здесь</h2>
 
-        <div class="breadcrumb"><span class="inline odd first"><a href="https://moypsiholog.ru/">Главная</a></span> <span class="delimiter">»</span> <span class="inline even last"><a href="https://moypsiholog.ru/reviews">Отзывы</a></span></div>
         <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
 
         <h1 class="title" id="page-title"><?php the_title(); ?></h1>
@@ -16,7 +15,6 @@
 
               <?php if (have_posts()): while (have_posts()) : the_post(); ?>
                 <div class="node node-feedback node-promoted clearfix" role="article">
-                  <span property="dc:title" content="Возвращение к реальности" class="rdf-meta element-hidden"></span>
                   <div class="content">
                     <div class="media-right reviews">
                       <div class="img-right">

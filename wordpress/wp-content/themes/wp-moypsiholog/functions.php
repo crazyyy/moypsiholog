@@ -163,7 +163,7 @@ function wpeSideNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="menu">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -174,8 +174,7 @@ add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 function register_html5_menu() {
   register_nav_menus(array(
     'header-menu' => __('Меню в шапке', 'wpeasy'),
-    'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'),
-    'footer-menu' => __('Меню в подвал', 'wpeasy')
+    'sidebar-menu' => __('Меню в сайдбар', 'wpeasy')
   ));
 }
 //  If Dynamic Sidebar Existsов
@@ -185,7 +184,7 @@ if (function_exists('register_sidebar')) {
     'name' => __('Блок виджетов #1', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea1',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'before_widget' => '<div id="%1$s" class="widget %2$s menu-block-wrapper menu-block-1 menu-name-main-menu">',
     'after_widget' => '</div>',
     'before_title' => '<h6>',
     'after_title' => '</h6>'
@@ -234,13 +233,11 @@ function wpeExcerpt($length_callback = '', $more_callback = '') {
 
 //  Custom View Article link to Post
 //  RU: Добавляем "Читать дальше" к обрезанным записям
-/*
 function html5_blank_view_article($more) {
   global $post;
-  return '... <!-- noindex --><a rel="nofollow" class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'wpeasy') . '</a><!-- /noindex -->';
+  return '...';
 }
 add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
-*/
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
 function my_wp_nav_menu_args($args = '') {
@@ -289,8 +286,8 @@ function html5wp_pagination() {
       'base' => str_replace($big, '%#%', get_pagenum_link($big)),
       'format' => '?paged=%#%',
       'current' => max(1, get_query_var('paged')),
-      'prev_text' => __('« Previous'),
-      'next_text' => __('Next »'),
+      'prev_text' => '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+      'next_text' => '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
       'total' => $wp_query->max_num_pages
     )
   );
@@ -427,10 +424,10 @@ function single_result() {
 function easy_breadcrumbs() {
 
   // Settings
-  $separator          = ' &raquo; ';
+  $separator          = ' <i class="fa fa-chevron-right" aria-hidden="true"></i> ';
   $breadcrums_id      = 'breadcrumbs';
   $breadcrums_class   = 'breadcrumbs';
-  $home_title         = __('Home', 'wpeasy');
+  $home_title         = 'Главная';
 
   // If you have any custom post types with custom taxonomies, put the taxonomy name below (e.g. product_cat)
   $custom_taxonomy    = 'categories';
@@ -681,6 +678,44 @@ function disable_emojicons_tinymce( $plugins ) {
   } else {
     return array();
   }
+}
+
+// Add Autoren Post Type
+add_action( 'init', 'post_type_review' );
+function post_type_review() {
+  $labels = array(
+    'name' => 'Отзывы',
+    'singular_name' => 'Отзыв',
+    'add_new' => 'Add',
+    'add_new_item' => 'Add',
+    'edit' => 'Edit',
+    'edit_item' => 'Edit',
+    'new-item' => 'Add',
+    'view' => 'View',
+    'view_item' => 'View',
+    'search_items' => 'Search',
+    'not_found' => 'Not Found',
+    'not_found_in_trash' => 'Not Found',
+    'parent' => 'Parent'
+  );
+  $args = array(
+    'description' => 'Reviews Post Type',
+    'show_ui' => true,
+    'menu_position' => 3,
+    'exclude_from_search' => false,
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array('title','editor','thumbnail'),
+    'has_archive' => true,
+    'rewrite' => array( 'slug' => 'reviews' ),
+    // https://developer.wordpress.org/resource/dashicons/
+    'menu_icon' => 'dashicons-format-status',
+    'show_in_rest' => true
+  );
+  register_post_type( 'reviews' , $args );
 }
 
 ?>
