@@ -1,34 +1,49 @@
 <?php get_header(); ?>
 
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <div id="main" class="container">
+    <div id="main-content">
+      <div class="card-holder">
+        <h2 class="element-invisible">Вы здесь</h2>
 
-      <h1 class="single-title inner-title"><?php the_title(); ?></h1>
-      <?php if ( has_post_thumbnail()) :?>
-        <a class="single-thumb" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-          <?php the_post_thumbnail(); // Fullsize image for the single post ?>
-        </a>
-      <?php endif; ?><!-- /post thumbnail -->
+        <div class="breadcrumb"><span class="inline odd first"><a href="https://moypsiholog.ru/">Главная</a></span> <span class="delimiter">»</span> <span class="inline even last"><a href="https://moypsiholog.ru/reviews">Отзывы</a></span></div>
+        <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
 
-      <span class="date"><?php the_time('d F Y'); ?> <?php the_time('H:i'); ?></span>
-      <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-      <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
+        <h1 class="title" id="page-title"><?php the_title(); ?></h1>
+        <div class="tabs"></div>
+        <div class="region region-content">
+          <div id="block-system-main" class="block block-system">
+            <div class="content">
 
-      <?php the_content(); ?>
+              <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                <div class="node node-feedback node-promoted clearfix" role="article">
+                  <span property="dc:title" content="Возвращение к реальности" class="rdf-meta element-hidden"></span>
+                  <div class="content">
+                    <div class="media-right reviews">
+                      <div class="img-right">
+                        <div class="icon male"></div>
+                        <div class="submitted">
+                          <span>Опубликовано <?php the_date('d.m.Y'); ?></span> </div>
+                      </div>
+                      <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                        <div class="field-items">
+                          <div class="field-item even" property="content:encoded">
+                            <?php the_content(); ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php endwhile; endif; ?>
 
-      <?php the_tags( __( 'Tags: ', 'wpeasy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <p><?php _e( 'Categorised in: ', 'wpeasy' ); the_category(', '); // Separated by commas ?></p>
+    <?php get_sidebar(); ?>
 
-      <p><?php _e( 'This post was written by ', 'wpeasy' ); the_author(); ?></p>
-
-      <?php edit_post_link(); ?>
-
-      <?php comments_template(); ?>
-
-    </article>
-  <?php endwhile; endif; ?>
-
-  <?php get_sidebar(); ?>
+  </div>
 
 <?php get_footer(); ?>

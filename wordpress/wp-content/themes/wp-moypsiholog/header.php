@@ -19,29 +19,124 @@
   <![endif]-->
   <!-- css + javascript -->
   <?php wp_head(); ?>
+
 </head>
-<body <?php body_class(); ?>>
-<!-- wrapper -->
-<div class="wrapper">
-  <header role="banner">
-    <div class="inner">
+<?php if ( is_page('home') ) { ?>
+  <body class="html front not-logged-in no-sidebars page-node navbar-fixed navbar-light wide-one-side">
+<?php } else { ?>
+  <body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-3 node-type-page navbar-fixed navbar-light">
+<?php } ?>
+  <div id="page">
+    <?php if ( is_page('home') ) { ?>
+      <div id="navbar" class="navbar-bg navbar-shadow">
+        <div class="region region-navbar">
+          <div id="block-block-21" class="block block-block navbar-item navbar-menu-toggle hidden-sm">
+            <div class="content">
+              <div id="navbar-menu-toggle"><a href="#"><i class="material-icons navbar-icon">menu</i></a></div>
+            </div>
+          </div>
+          <div id="block-block-20" class="block block-block navbar-item">
+            <div class="content">
+              <div class="navbar-logo"><a href="/"><span></span></a></div>
+            </div>
+          </div>
+          <div id="block-menu-block-2" class="block block-menu-block navbar-item navbar-menu pull-right visible-sm">
+            <div class="content">
+              <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1">
+                <?php wpeHeadNav(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="drawer-overlay"></div>
+      <div id="drawer">
+        <div class="region region-drawer">
+          <div id="block-block-22" class="block block-block drawer-item divider-bottom">
+            <div class="content">
+              <div id="drawer-menu-close"><a href="#"><i class="material-icons drawer-icon">arrow_back</i></a></div>
+              <div id="drawer-title">Разделы</div>
+            </div>
+          </div>
+          <div id="block-menu-block-3" class="block block-menu-block drawer-item">
+            <div class="content">
+              <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-1">
+                <?php wpeHeadNav(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header id="header" role="banner">
+        <div id="header-content">
+          <div class="region region-header">
+            <div id="block-block-19" class="block block-block container">
+              <div class="content">
+                <div class="front-header">
+                  <div class="section-left"></div>
+                  <div class="arrow-first"></div>
+                  <div class="section-center">
+                    <div class="header-logo"></div>
+                    <div class="header-slogan">Консультации опытного практикующего психолога</div>
+                  </div>
+                  <div class="arrow-second"></div>
+                  <div class="section-right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="header-bg" style="opacity: 0.242424;"></div>
+      </header>
 
-      <div class="logo">
-        <?php if ( !is_front_page() && !is_home() ){ ?>
-          <a href="<?php echo home_url(); ?>">
-        <?php } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-        <?php if ( !is_front_page() && !is_home() ){ ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
+    <?php } else { ?>
 
-      <nav class="nav" role="navigation">
-        <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
+      <div id="navbar" class="navbar-bg">
+        <div class="region region-navbar">
+          <div id="block-block-21" class="block block-block navbar-item navbar-menu-toggle hidden-sm">
+            <div class="content">
+              <div id="navbar-menu-toggle"><a href="#"><i class="material-icons navbar-icon">menu</i></a></div>
+            </div>
+          </div>
+          <div id="block-block-20" class="block block-block navbar-item">
+            <div class="content">
+              <div class="navbar-logo"><a href="/"><span></span></a></div>
+            </div>
+          </div>
+          <div id="block-menu-block-2" class="block block-menu-block navbar-item navbar-menu pull-right visible-sm">
+            <div class="content">
+              <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1">
+                <?php wpeHeadNav(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="drawer-overlay"></div>
+      <div id="drawer">
+        <div class="region region-drawer">
+          <div id="block-block-22" class="block block-block drawer-item divider-bottom">
+            <div class="content">
+              <div id="drawer-menu-close"><a href="#"><i class="material-icons drawer-icon">arrow_back</i></a></div>
+              <div id="drawer-title">Разделы</div>
+            </div>
+          </div>
+          <div id="block-menu-block-3" class="block block-menu-block drawer-item">
+            <div class="content">
+              <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-1">
+                <?php wpeHeadNav(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header id="header" role="banner">
+        <div id="header-content">
+        </div>
+        <div id="header-bg" style="opacity: 1;">
+        </div>
+      </header>
 
-    </div><!-- /.inner -->
-  </header><!-- /header -->
+    <?php } ?>
 
-  <section role="main">
-    <div class="inner">
+    <div id="content">

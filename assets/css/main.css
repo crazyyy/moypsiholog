@@ -1,8 +1,8 @@
 @charset "UTF-8";
-/* cyrillic-ext */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&subset=latin,cyrillic-ext);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+/* cyrillic-ext */
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -20584,6 +20584,15 @@ h3, .h3, h4, .h4 {
   src: local("Segoe Print"), local("SegoePrint"), url(../fonts/SegoePrint.eot) format("embedded-opentype"), url(../fonts/SegoePrint.woff2) format("woff2"), url(../fonts/SegoePrint.woff) format("woff"), url(../fonts/SegoePrint.ttf) format("truetype"), url(../img/SegoePrint.svg#SegoePrint) format("svg");
   font-weight: normal;
   font-style: normal;
+}
+
+.breadcrumbs {
+  padding: 0;
+  list-style-type: none;
+}
+
+.breadcrumbs li {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
