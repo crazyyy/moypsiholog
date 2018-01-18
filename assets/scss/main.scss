@@ -47,8 +47,11 @@
 }
 #gmap-front {
   width: 100%;
-
   img {
     max-width: inherit !important;
   }
+}
+
+.item-paddinger .text {
+  padding-right: 264px;
 }

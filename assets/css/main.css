@@ -20634,13 +20634,14 @@ h3, .h3, h4, .h4 {
 
 #gmap-front {
   width: 100%;
-  height: 400px;
-  margin: 20px 0;
-  border: #cccccc solid 1px;
 }
 
 #gmap-front img {
   max-width: inherit !important;
+}
+
+.item-paddinger .text {
+  padding-right: 264px;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
