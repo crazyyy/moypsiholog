@@ -20634,6 +20634,7 @@ h3, .h3, h4, .h4 {
 
 #gmap-front {
   width: 100%;
+  height: 480px;
 }
 
 #gmap-front img {
@@ -20642,6 +20643,21 @@ h3, .h3, h4, .h4 {
 
 .item-paddinger .text {
   padding-right: 264px;
+}
+
+@media (min-width: 1256px) {
+  .item-paddinger .text .submitted {
+    float: right;
+    margin: 0 -264px 0 0;
+  }
+}
+
+.field-items img {
+  max-width: 100%;
+}
+
+.menu .current_page_item a {
+  border-color: #f50057;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

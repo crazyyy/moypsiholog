@@ -103,7 +103,7 @@
                   <div class="item col-xs-12 col-md-6 mb-24 clearfix">
                     <h3 class="mb-24"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <div class="text">
-                      <div class="icon male"></div>
+                      <div class="icon male" <?php if ( has_post_thumbnail()) { ?>style="background-position: center center; background-image: url('<?php echo the_post_thumbnail_url('medium'); ?>');"<?php } ?>></div>
                       <?php wpeExcerpt('wpeExcerpt20'); ?>
                     </div>
                   </div>
@@ -125,8 +125,8 @@
                     <h3 class="mb-24"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <div class="text">
                       <div class="icon calendar">
-                        <span class="day"><?php the_date('d'); ?></span>
-                        <span class="month"><?php the_date('M'); ?></span>
+                        <span class="day"><?php the_time('d'); ?></span>
+                        <span class="month"><?php the_time('M'); ?></span>
                       </div>
                       <?php wpeExcerpt('wpeExcerpt20'); ?>
                     </div>

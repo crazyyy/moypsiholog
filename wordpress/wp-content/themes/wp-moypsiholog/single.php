@@ -3,10 +3,7 @@
   <div id="main" class="container">
     <div id="main-content">
       <div class="card-holder">
-        <h2 class="element-invisible">Вы здесь</h2>
-
         <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
-
         <h1 class="title" id="page-title"><?php the_title(); ?></h1>
         <div class="tabs"></div>
         <div class="region region-content">
@@ -18,9 +15,9 @@
                   <div class="content">
                     <div class="media-right reviews">
                       <div class="img-right">
-                        <div class="icon male"></div>
+                        <div class="icon male" <?php if ( has_post_thumbnail()) { ?>style="background-position: center center; background-image: url('<?php echo the_post_thumbnail_url('medium'); ?>');"<?php } ?>></div>
                         <div class="submitted">
-                          <span>Опубликовано <?php the_date('d.m.Y'); ?></span> </div>
+                          <span>Опубликовано <?php the_time('d.m.Y'); ?></span> </div>
                       </div>
                       <div class="field field-name-body field-type-text-with-summary field-label-hidden">
                         <div class="field-items">

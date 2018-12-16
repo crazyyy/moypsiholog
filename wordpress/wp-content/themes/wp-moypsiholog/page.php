@@ -3,7 +3,6 @@
   <div id="main" class="container">
     <div id="main-content">
       <div class="card-holder">
-        <h2 class="element-invisible">Вы здесь</h2>
         <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
         <h1 class="title" id="page-title"><?php the_title(); ?></h1>
         <div class="tabs"></div>
